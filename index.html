@@ -1,405 +1,419 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emergency Safety Website</title>
 
-  <title>Suraksha Alert</title>
+<style>
+* {
+  box-sizing: border-box;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f1f3f6;
+  color: #222;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      color: #222;
-    }
+header {
+  background: #d62828;
+  color: white;
+  text-align: center;
+  padding: 18px;
+  font-size: 24px;
+  font-weight: bold;
+}
 
-    header {
-      background: #c62828;
-      color: white;
-      text-align: center;
-      padding: 22px 15px;
-    }
+.card {
+  background: white;
+  margin: 25px;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.10);
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 30px;
-    }
+h1 {
+  text-align: center;
+  font-size: 32px;
+}
 
-    header p {
-      margin: 8px 0 0;
-      font-size: 15px;
-    }
+h2 {
+  font-size: 28px;
+}
 
-    .container {
-      max-width: 520px;
-      margin: 25px auto;
-      padding: 15px;
-    }
+.center {
+  text-align: center;
+}
 
-    .card {
-      background: white;
-      padding: 22px;
-      border-radius: 18px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.10);
-      margin-bottom: 18px;
-    }
+.sos {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: none;
+  background: #e00000;
+  color: white;
+  font-size: 55px;
+  font-weight: bold;
+  box-shadow: 0 10px 30px rgba(220,0,0,0.35);
+  cursor: pointer;
+}
 
-    .sos-button {
-      display: block;
-      width: 210px;
-      height: 210px;
-      margin: 25px auto;
-      border: none;
-      border-radius: 50%;
-      background: #d50000;
-      color: white;
-      font-size: 45px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 8px 25px rgba(213,0,0,0.35);
-    }
+.sos:active {
+  transform: scale(0.96);
+}
 
-    .sos-button:active {
-      transform: scale(0.96);
-    }
+input {
+  width: 100%;
+  padding: 18px;
+  margin: 10px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  font-size: 18px;
+}
 
-    label {
-      display: block;
-      margin-top: 15px;
-      margin-bottom: 7px;
-      font-weight: bold;
-    }
+button {
+  width: 100%;
+  padding: 17px;
+  border: none;
+  border-radius: 14px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    input {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      font-size: 16px;
-    }
+.save {
+  background: #1976d2;
+  color: white;
+}
 
-    .save-button,
-    .share-button {
-      width: 100%;
-      border: none;
-      padding: 14px;
-      margin-top: 15px;
-      border-radius: 10px;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.location {
+  background: #2e7d32;
+  color: white;
+  margin-top: 15px;
+}
 
-    .save-button {
-      background: #1976d2;
-      color: white;
-    }
+.call {
+  background: #008000;
+  color: white;
+  margin-top: 15px;
+}
 
-    .share-button {
-      background: #2e7d32;
-      color: white;
-    }
+.sms {
+  background: #ff8c00;
+  color: white;
+  margin-top: 15px;
+}
 
-    #status {
-      margin-top: 15px;
-      padding: 14px;
-      background: #eeeeee;
-      border-radius: 10px;
-      line-height: 1.6;
-      word-break: break-word;
-    }
+.maps {
+  display: block;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
 
-    .note {
-      font-size: 13px;
-      color: #666;
-      line-height: 1.5;
-    }
+.result {
+  background: #f0f0f0;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.7;
+}
 
-    .location-link {
-      display: inline-block;
-      margin-top: 10px;
-      color: #1565c0;
-      font-weight: bold;
-    }
-  </style>
+.hidden {
+  display: none;
+}
+
+.warning {
+  background: #fff3cd;
+  padding: 20px;
+  border-radius: 15px;
+  line-height: 1.6;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>🛡️ Suraksha Alert</h1>
-  <p>Emergency Safety Website</p>
+🚨 Emergency Safety Website
 </header>
 
-<div class="container">
+<div class="card center">
 
-  <div class="card">
-    <h2 style="text-align:center;">क्या आपको खतरा महसूस हो रहा है?</h2>
+<h1>क्या आपको खतरा महसूस हो रहा है?</h1>
 
-    <p style="text-align:center;">
-      जरूरत पड़ने पर SOS दबाएँ।
-    </p>
+<p style="font-size:20px;">
+जरूरत पड़ने पर SOS दबाएँ
+</p>
 
-    <button class="sos-button" onclick="sendSOS()">
-      SOS
-    </button>
+<button class="sos" onclick="getLocation()">
+SOS
+</button>
 
-    <div id="status">
-      SOS दबाने पर आपकी अनुमति से location प्राप्त की जाएगी।
-    </div>
-  </div>
+<div id="locationResult" class="result hidden"></div>
+
+</div>
 
 
-  <div class="card">
+<div class="card">
 
-    <h2>👨‍👩‍👧 Emergency Contact</h2>
+<h2>👨‍👩‍👧 Emergency Contact</h2>
 
-    <label for="contactName">
-      घर वाले का नाम
-    </label>
+<label>घर वाले का नाम</label>
 
-    <input
-      type="text"
-      id="contactName"
-      placeholder="जैसे: पापा"
-    >
+<input
+  type="text"
+  id="contactName"
+  placeholder="जैसे: पापा"
+>
 
-    <label for="contactPhone">
-      मोबाइल नंबर
-    </label>
+<label>मोबाइल नंबर</label>
 
-    <input
-      type="tel"
-      id="contactPhone"
-      placeholder="जैसे: 9876543210"
-    >
+<input
+  type="tel"
+  id="contactPhone"
+  placeholder="जैसे: 9876543210"
+>
 
-    <button class="save-button" onclick="saveContact()">
-      Contact Save करें
-    </button>
+<button class="save" onclick="saveContact()">
+Contact Save करें
+</button>
 
-    <p id="contactStatus"></p>
+<div id="saveMessage"></div>
 
-  </div>
+</div>
 
 
-  <div class="card">
+<div class="card">
 
-    <h2>📍 Location</h2>
+<h2>📍 Location</h2>
 
-    <p class="note">
-      Location केवल SOS दबाने के बाद browser की permission मिलने पर प्राप्त की जाएगी।
-    </p>
+<p>
+SOS दबाने के बाद आपकी browser permission मिलने पर
+location प्राप्त की जाएगी।
+</p>
 
-    <button class="share-button" onclick="shareLocation()">
-      Location Share करें
-    </button>
+<button class="location" onclick="getLocation()">
+Location Share करें
+</button>
 
-  </div>
+</div>
 
 
-  <div class="card">
+<div id="emergencyActions" class="card hidden">
 
-    <h3>⚠️ जरूरी सूचना</h3>
+<h2>🚨 Emergency Actions</h2>
 
-    <p class="note">
-      यह एक safety-alert prototype है। Location sharing browser
-      permission और device की location settings पर निर्भर करती है।
-      Emergency में अपने स्थानीय emergency service से भी संपर्क करें।
-    </p>
+<button class="call" onclick="callContact()">
+📞 Emergency Contact को Call करें
+</button>
 
-  </div>
+<button class="sms" onclick="sendSMS()">
+💬 Emergency SMS तैयार करें
+</button>
+
+<div id="actionMessage" class="result"></div>
+
+</div>
+
+
+<div class="card">
+
+<h2>⚠️ जरूरी सूचना</h2>
+
+<div class="warning">
+यह एक safety-alert prototype है।
+Emergency स्थिति में स्थानीय emergency services
+से भी संपर्क करें।
+<br><br>
+Location sharing browser permission और device की
+location settings पर निर्भर करती है।
+</div>
 
 </div>
 
 
 <script>
 
-  let currentLocation = null;
+let currentLatitude = null;
+let currentLongitude = null;
 
 
-  // Save emergency contact
-  function saveContact() {
+/* Contact load करें */
 
-    const name = document.getElementById("contactName").value.trim();
-    const phone = document.getElementById("contactPhone").value.trim();
+window.onload = function() {
 
-    if (name === "" || phone === "") {
-      document.getElementById("contactStatus").innerHTML =
-        "कृपया नाम और मोबाइल नंबर दोनों भरें।";
-      return;
-    }
+  const savedName = localStorage.getItem("emergencyName");
+  const savedPhone = localStorage.getItem("emergencyPhone");
 
-    localStorage.setItem("emergencyName", name);
-    localStorage.setItem("emergencyPhone", phone);
-
-    document.getElementById("contactStatus").innerHTML =
-      "✅ Emergency contact इस device में save हो गया।";
+  if (savedName) {
+    document.getElementById("contactName").value = savedName;
   }
 
-
-  // Load saved contact
-  window.onload = function() {
-
-    const savedName = localStorage.getItem("emergencyName");
-    const savedPhone = localStorage.getItem("emergencyPhone");
-
-    if (savedName) {
-      document.getElementById("contactName").value = savedName;
-    }
-
-    if (savedPhone) {
-      document.getElementById("contactPhone").value = savedPhone;
-    }
-  };
+  if (savedPhone) {
+    document.getElementById("contactPhone").value = savedPhone;
+  }
+};
 
 
-  // SOS function
-  function sendSOS() {
+/* Contact Save */
 
-    const status = document.getElementById("status");
+function saveContact() {
 
-    status.innerHTML =
-      "⏳ आपकी permission से location प्राप्त की जा रही है...";
+  const name =
+    document.getElementById("contactName").value.trim();
 
-    if (!navigator.geolocation) {
+  const phone =
+    document.getElementById("contactPhone").value.trim();
 
-      status.innerHTML =
-        "❌ इस browser में location सुविधा उपलब्ध नहीं है।";
+  if (!name || !phone) {
 
-      return;
-    }
-
-
-    navigator.geolocation.getCurrentPosition(
-
-      function(position) {
-
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
-
-        currentLocation = {
-          latitude: latitude,
-          longitude: longitude
-        };
-
-        const mapLink =
-          "https://www.google.com/maps?q=" +
-          latitude + "," + longitude;
-
-
-        status.innerHTML =
-          "🚨 SOS Location तैयार है।<br><br>" +
-
-          "Latitude: " + latitude.toFixed(6) + "<br>" +
-
-          "Longitude: " + longitude.toFixed(6) + "<br><br>" +
-
-          "<a class='location-link' href='" +
-          mapLink +
-          "' target='_blank'>📍 Google Maps में Location देखें</a><br><br>" +
-
-          "नीचे Location Share करें button का इस्तेमाल कर सकते हैं।";
-      },
-
-
-      function(error) {
-
-        if (error.code === 1) {
-
-          status.innerHTML =
-            "❌ Location permission नहीं मिली। कृपया browser में Location Allow करें।";
-
-        } else if (error.code === 2) {
-
-          status.innerHTML =
-            "❌ Location उपलब्ध नहीं है। फोन की Location/GPS चालू करें।";
-
-        } else {
-
-          status.innerHTML =
-            "❌ Location प्राप्त नहीं हो सकी। कृपया फिर कोशिश करें.";
-        }
-
-      },
-
-      {
-        enableHighAccuracy: true,
-        timeout: 15000,
-        maximumAge: 0
-      }
-
-    );
+    alert("कृपया नाम और मोबाइल नंबर भरें।");
+    return;
   }
 
+  localStorage.setItem("emergencyName", name);
+  localStorage.setItem("emergencyPhone", phone);
 
-  // Share location
-  async function shareLocation() {
+  document.getElementById("saveMessage").innerHTML =
+    '<div class="result">✅ Emergency Contact Save हो गया।</div>';
+}
 
-    if (!currentLocation) {
 
-      document.getElementById("status").innerHTML =
-        "पहले SOS दबाकर location प्राप्त करें।";
+/* Location */
 
-      return;
+function getLocation() {
+
+  if (!navigator.geolocation) {
+
+    alert("इस browser में Location उपलब्ध नहीं है।");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+
+    function(position) {
+
+      currentLatitude =
+        position.coords.latitude;
+
+      currentLongitude =
+        position.coords.longitude;
+
+      const mapsLink =
+        "https://www.google.com/maps?q=" +
+        currentLatitude +
+        "," +
+        currentLongitude;
+
+      document.getElementById("locationResult").classList.remove("hidden");
+
+      document.getElementById("locationResult").innerHTML =
+
+        "🚨 <b>SOS Location तैयार है।</b><br><br>" +
+
+        "Latitude: " + currentLatitude + "<br>" +
+
+        "Longitude: " + currentLongitude +
+
+        '<br><br><a class="maps" href="' +
+        mapsLink +
+        '" target="_blank">' +
+        '📍 Google Maps में Location देखें' +
+        '</a>';
+
+      document
+        .getElementById("emergencyActions")
+        .classList.remove("hidden");
+
+    },
+
+    function(error) {
+
+      alert(
+        "Location permission नहीं मिली। कृपया browser में Location Allow करें।"
+      );
+
+    },
+
+    {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0
     }
 
+  );
+}
 
-    const latitude = currentLocation.latitude;
-    const longitude = currentLocation.longitude;
+
+/* Call */
+
+function callContact() {
+
+  const phone =
+    localStorage.getItem("emergencyPhone");
+
+  if (!phone) {
+
+    alert("पहले Emergency Contact Save करें।");
+    return;
+  }
+
+  window.location.href = "tel:" + phone;
+}
 
 
-    const mapLink =
+/* SMS */
+
+function sendSMS() {
+
+  const phone =
+    localStorage.getItem("emergencyPhone");
+
+  const name =
+    localStorage.getItem("emergencyName") || "Emergency Contact";
+
+  if (!phone) {
+
+    alert("पहले Emergency Contact Save करें।");
+    return;
+  }
+
+  let message =
+    "🚨 EMERGENCY ALERT 🚨\n\n" +
+    "मुझे मदद की जरूरत है। कृपया मुझसे संपर्क करें।";
+
+  if (
+    currentLatitude !== null &&
+    currentLongitude !== null
+  ) {
+
+    const mapsLink =
       "https://www.google.com/maps?q=" +
-      latitude + "," + longitude;
+      currentLatitude +
+      "," +
+      currentLongitude;
 
-
-    const name =
-      localStorage.getItem("emergencyName") ||
-      "Emergency Contact";
-
-
-    const message =
-      "🚨 EMERGENCY ALERT 🚨\n\n" +
-
-      "मुझे मदद की जरूरत है।\n" +
-
-      "मेरी current location:\n" +
-
-      mapLink + "\n\n" +
-
-      "यह message Suraksha Alert से बनाया गया है।";
-
-
-    if (navigator.share) {
-
-      try {
-
-        await navigator.share({
-          title: "Emergency Alert",
-          text: message
-        });
-
-      } catch (error) {
-
-        console.log("Share cancelled");
-
-      }
-
-    } else {
-
-      const whatsappLink =
-        "https://wa.me/?text=" +
-        encodeURIComponent(message);
-
-      window.open(whatsappLink, "_blank");
-    }
+    message +=
+      "\n\n📍 मेरी Location:\n" +
+      mapsLink;
   }
+
+  const smsLink =
+    "sms:" +
+    phone +
+    "?body=" +
+    encodeURIComponent(message);
+
+  document.getElementById("actionMessage").innerHTML =
+    "💬 " + name +
+    " के लिए Emergency SMS तैयार किया जा रहा है...";
+
+  window.location.href = smsLink;
+}
 
 </script>
 
