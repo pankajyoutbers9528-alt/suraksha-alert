@@ -1,180 +1,184 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Suraksha Alert</title>
 
-<!-- PWA -->
 <link rel="manifest" href="./manifest.json">
-
 <meta name="theme-color" content="#d60000">
 
 <style>
 
 *{
-box-sizing:border-box;
+    box-sizing:border-box;
 }
 
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#eef2f7;
-color:#202124;
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#eef2f7;
+    color:#222;
 }
 
 header{
-background:linear-gradient(135deg,#d60000,#ff3131);
-color:white;
-text-align:center;
-padding:18px 10px;
-font-size:24px;
-font-weight:bold;
-box-shadow:0 3px 12px rgba(0,0,0,.2);
+    background:linear-gradient(135deg,#d60000,#ff3030);
+    color:white;
+    text-align:center;
+    padding:18px 10px;
+    font-size:24px;
+    font-weight:bold;
 }
 
 .subtitle{
-font-size:12px;
-margin-top:5px;
+    font-size:12px;
+    margin-top:5px;
 }
 
 .card{
-background:white;
-margin:16px;
-padding:22px;
-border-radius:20px;
-box-shadow:0 5px 18px rgba(0,0,0,.10);
+    background:white;
+    margin:16px;
+    padding:22px;
+    border-radius:20px;
+    box-shadow:0 5px 18px rgba(0,0,0,0.10);
 }
 
 h1{
-text-align:center;
-margin:5px 0 10px;
+    text-align:center;
 }
 
 h2{
-margin-top:0;
-font-size:20px;
-}
-
-p{
-line-height:1.6;
-}
-
-.center{
-text-align:center;
+    margin-top:0;
 }
 
 input{
-width:100%;
-padding:15px;
-margin:8px 0 14px;
-border:1px solid #ccc;
-border-radius:12px;
-font-size:17px;
+    width:100%;
+    padding:15px;
+    margin:8px 0 14px;
+    border:1px solid #ccc;
+    border-radius:12px;
+    font-size:17px;
 }
 
 button{
-width:100%;
-padding:15px;
-border:0;
-border-radius:13px;
-font-size:17px;
-font-weight:bold;
-margin-top:9px;
+    width:100%;
+    padding:15px;
+    border:0;
+    border-radius:13px;
+    font-size:17px;
+    font-weight:bold;
+    margin-top:9px;
+    cursor:pointer;
 }
 
-.sos{
-width:210px;
-height:210px;
-border-radius:50%;
-background:linear-gradient(145deg,#ff0000,#c40000);
-color:white;
-font-size:46px;
-box-shadow:0 8px 25px rgba(220,0,0,.35);
-border:7px solid white;
-}
-
-.save{
-background:#1976d2;
-color:white;
-}
-
-.location{
-background:#218838;
-color:white;
-}
-
-.call{
-background:#008000;
-color:white;
-}
-
-.sms{
-background:#f57c00;
-color:white;
+button:active{
+    transform:scale(0.98);
 }
 
 .pinbtn{
-background:#6a1b9a;
-color:white;
+    background:#6a1b9a;
+    color:white;
+}
+
+.save{
+    background:#1976d2;
+    color:white;
+}
+
+.location{
+    background:#218838;
+    color:white;
+}
+
+.call{
+    background:#008000;
+    color:white;
+}
+
+.sms{
+    background:#f57c00;
+    color:white;
 }
 
 .logout{
-background:#555;
-color:white;
+    background:#555;
+    color:white;
+}
+
+.reset{
+    background:#b71c1c;
+    color:white;
 }
 
 .contactbtn{
-background:#1565c0;
-color:white;
+    background:#1565c0;
+    color:white;
 }
 
-.result{
-background:#f3f5f7;
-padding:16px;
-border-radius:13px;
-margin-top:14px;
-line-height:1.7;
-word-break:break-word;
+.sos{
+    width:210px;
+    height:210px;
+    border-radius:50%;
+    background:#e00000;
+    color:white;
+    font-size:46px;
+    box-shadow:0 8px 25px rgba(220,0,0,0.35);
+    border:7px solid white;
+}
+
+.center{
+    text-align:center;
 }
 
 .hidden{
-display:none;
+    display:none !important;
+}
+
+.result{
+    background:#f3f5f7;
+    padding:16px;
+    border-radius:13px;
+    margin-top:14px;
+    line-height:1.7;
+    word-break:break-word;
 }
 
 .error{
-color:#c40000;
-font-weight:bold;
+    color:#c40000;
+    font-weight:bold;
 }
 
 .success{
-color:#087f23;
-font-weight:bold;
+    color:#087f23;
+    font-weight:bold;
 }
 
 .security{
-border-left:5px solid #6a1b9a;
+    border-left:5px solid #6a1b9a;
 }
 
 .locationCard{
-border-left:5px solid #218838;
+    border-left:5px solid #218838;
 }
 
 .warning{
-border-left:5px solid #ff9800;
+    border-left:5px solid #ff9800;
 }
 
 .sosCard{
-border:2px solid #ffd0d0;
+    border:2px solid #ffd0d0;
 }
 
 a{
-color:#1565c0;
-font-weight:bold;
+    color:#1565c0;
+    font-weight:bold;
+}
+
+hr{
+    border:0;
+    border-top:1px solid #ddd;
+    margin:22px 0;
 }
 
 </style>
@@ -183,17 +187,16 @@ font-weight:bold;
 <body>
 
 <header>
-
 🚨 Suraksha Alert
-
 <div class="subtitle">
 Emergency Safety & Location Assistant
 </div>
-
 </header>
 
 
-<!-- APP PIN -->
+<!-- =========================
+     APP PIN SCREEN
+========================= -->
 
 <div id="pinScreen" class="card center">
 
@@ -208,36 +211,45 @@ type="password"
 id="pinInput"
 inputmode="numeric"
 maxlength="6"
-placeholder="4-6 अंकों का PIN">
+placeholder="4-6 अंकों का PIN"
+autocomplete="off"
+>
 
 <button
+type="button"
 class="pinbtn"
 onclick="unlockApp()">
-
 🔓 Unlock App
-
 </button>
 
 <div id="pinMessage"></div>
 
-<hr style="margin:25px 0">
+<hr>
 
 <p>
 पहली बार इस्तेमाल कर रहे हैं?
 </p>
 
 <button
+type="button"
 class="save"
-onclick="showCreatePin()">
-
+onclick="createAppPin()">
 🔑 नया PIN बनाएं
+</button>
 
+<button
+type="button"
+class="reset"
+onclick="resetAppData()">
+⚠️ PIN भूल गए? Reset करें
 </button>
 
 </div>
 
 
-<!-- MAIN APP -->
+<!-- =========================
+     MAIN APP
+========================= -->
 
 <div id="mainApp" class="hidden">
 
@@ -253,11 +265,10 @@ onclick="showCreatePin()">
 </p>
 
 <button
+type="button"
 class="sos"
 onclick="getLocation()">
-
 SOS
-
 </button>
 
 <div
@@ -268,7 +279,9 @@ class="result hidden">
 </div>
 
 
-<!-- CONTACT -->
+<!-- =========================
+     EMERGENCY CONTACT
+========================= -->
 
 <div class="card security">
 
@@ -277,15 +290,14 @@ class="result hidden">
 <div id="contactLocked">
 
 <p>
-Contact देखने या बदलने के लिए पहले Contact PIN डालें।
+Emergency Contact देखने या बदलने के लिए पहले Contact PIN डालें।
 </p>
 
 <button
+type="button"
 class="contactbtn"
 onclick="unlockContact()">
-
 🔓 Contact Unlock करें
-
 </button>
 
 </div>
@@ -293,49 +305,54 @@ onclick="unlockContact()">
 
 <div id="contactArea" class="hidden">
 
-<label>👤 नाम</label>
+<label>
+👤 नाम
+</label>
 
 <input
 type="text"
 id="contactName"
-placeholder="जैसे: पापा">
+placeholder="जैसे: पापा"
+autocomplete="off"
+>
 
 
-<label>📱 मोबाइल नंबर</label>
+<label>
+📱 मोबाइल नंबर
+</label>
 
 <input
 type="tel"
 id="contactPhone"
 inputmode="tel"
-placeholder="मोबाइल नंबर">
+placeholder="मोबाइल नंबर"
+autocomplete="off"
+>
 
 
 <button
+type="button"
 class="save"
 onclick="saveContact()">
-
 💾 Contact Save करें
-
 </button>
 
 <div id="saveMessage"></div>
 
 
 <button
+type="button"
 class="pinbtn"
 onclick="changeContactPin()">
-
 🔑 Contact PIN बदलें
-
 </button>
 
 
 <button
+type="button"
 class="logout"
 onclick="lockContact()">
-
 🔒 Contact Lock करें
-
 </button>
 
 </div>
@@ -343,8 +360,801 @@ onclick="lockContact()">
 </div>
 
 
-<!-- LOCATION -->
+<!-- =========================
+     LOCATION
+========================= -->
 
 <div class="card locationCard">
 
-<h2>📍 वर्तमान
+<h2>📍 वर्तमान स्थान</h2>
+
+<p>
+अपनी वर्तमान Location प्राप्त करने के लिए नीचे बटन दबाएँ।
+</p>
+
+<button
+type="button"
+class="location"
+onclick="getLocation()">
+📍 Location प्राप्त करें
+</button>
+
+<div id="locationBox"></div>
+
+</div>
+
+
+<!-- =========================
+     EMERGENCY ACTIONS
+========================= -->
+
+<div
+id="emergencyActions"
+class="card hidden">
+
+<h2>🚨 Emergency Actions</h2>
+
+<button
+type="button"
+class="call"
+onclick="callContact()">
+📞 Emergency Contact को Call करें
+</button>
+
+<button
+type="button"
+class="sms"
+onclick="sendSMS()">
+💬 Emergency SMS तैयार करें
+</button>
+
+<div id="actionMessage"></div>
+
+</div>
+
+
+<!-- =========================
+     APP SECURITY
+========================= -->
+
+<div class="card security">
+
+<h2>🔐 App Security</h2>
+
+<button
+type="button"
+class="pinbtn"
+onclick="changeAppPin()">
+🔑 App PIN बदलें
+</button>
+
+<button
+type="button"
+class="logout"
+onclick="lockApp()">
+🔒 अभी App Lock करें
+</button>
+
+</div>
+
+
+<!-- =========================
+     INFORMATION
+========================= -->
+
+<div class="card warning">
+
+<h2>⚠️ जरूरी सूचना</h2>
+
+<p>
+यह एक safety-alert website/prototype है।
+Location browser permission पर निर्भर करती है।
+Emergency स्थिति में उचित स्थानीय सहायता से भी संपर्क करें।
+</p>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+let currentLatitude = null;
+let currentLongitude = null;
+
+
+/* =========================================
+   APP PIN - CREATE
+========================================= */
+
+function createAppPin(){
+
+    let pin = prompt(
+        "नया App PIN डालें (4 से 6 अंक):"
+    );
+
+    if(pin === null){
+        return;
+    }
+
+    if(!/^[0-9]{4,6}$/.test(pin)){
+
+        alert(
+            "❌ PIN केवल 4 से 6 अंकों का होना चाहिए।"
+        );
+
+        return;
+    }
+
+    localStorage.setItem(
+        "surakshaPin",
+        pin
+    );
+
+    document.getElementById(
+        "pinMessage"
+    ).innerHTML =
+    '<p class="success">✅ नया PIN बन गया है। अब अपना PIN डालकर Unlock करें।</p>';
+
+    document.getElementById(
+        "pinInput"
+    ).value = "";
+
+}
+
+
+/* =========================================
+   APP PIN - UNLOCK
+========================================= */
+
+function unlockApp(){
+
+    const savedPin =
+    localStorage.getItem("surakshaPin");
+
+    const enteredPin =
+    document.getElementById("pinInput").value.trim();
+
+
+    if(!savedPin){
+
+        document.getElementById(
+            "pinMessage"
+        ).innerHTML =
+        '<p class="error">❌ पहले नया PIN बनाएं।</p>';
+
+        return;
+    }
+
+
+    if(enteredPin === savedPin){
+
+        document.getElementById(
+            "pinScreen"
+        ).classList.add("hidden");
+
+        document.getElementById(
+            "mainApp"
+        ).classList.remove("hidden");
+
+        document.getElementById(
+            "pinMessage"
+        ).innerHTML = "";
+
+        document.getElementById(
+            "pinInput"
+        ).value = "";
+
+    }
+
+    else{
+
+        document.getElementById(
+            "pinMessage"
+        ).innerHTML =
+        '<p class="error">❌ PIN गलत है।</p>';
+
+    }
+
+}
+
+
+/* =========================================
+   APP LOCK
+========================================= */
+
+function lockApp(){
+
+    document.getElementById(
+        "mainApp"
+    ).classList.add("hidden");
+
+    document.getElementById(
+        "pinScreen"
+    ).classList.remove("hidden");
+
+    document.getElementById(
+        "pinInput"
+    ).value = "";
+
+}
+
+
+/* =========================================
+   CHANGE APP PIN
+========================================= */
+
+function changeAppPin(){
+
+    const savedPin =
+    localStorage.getItem("surakshaPin");
+
+    if(!savedPin){
+
+        alert(
+            "पहले App PIN बनाएं।"
+        );
+
+        return;
+    }
+
+
+    const oldPin =
+    prompt("अपना वर्तमान App PIN डालें:");
+
+    if(oldPin !== savedPin){
+
+        alert(
+            "❌ वर्तमान App PIN गलत है।"
+        );
+
+        return;
+    }
+
+
+    const newPin =
+    prompt(
+        "नया App PIN डालें (4 से 6 अंक):"
+    );
+
+    if(newPin === null){
+        return;
+    }
+
+
+    if(!/^[0-9]{4,6}$/.test(newPin)){
+
+        alert(
+            "❌ PIN केवल 4 से 6 अंकों का होना चाहिए।"
+        );
+
+        return;
+    }
+
+
+    localStorage.setItem(
+        "surakshaPin",
+        newPin
+    );
+
+    alert(
+        "✅ App PIN सफलतापूर्वक बदल गया।"
+    );
+
+}
+
+
+/* =========================================
+   RESET APP DATA
+========================================= */
+
+function resetAppData(){
+
+    const answer =
+    confirm(
+        "⚠️ इससे App PIN और Emergency Contact की saved जानकारी हट जाएगी। क्या आप Reset करना चाहते हैं?"
+    );
+
+    if(!answer){
+        return;
+    }
+
+    localStorage.removeItem("surakshaPin");
+    localStorage.removeItem("contactPin");
+    localStorage.removeItem("emergencyName");
+    localStorage.removeItem("emergencyPhone");
+
+    alert(
+        "✅ App Reset हो गया। अब नया PIN बना सकते हैं।"
+    );
+
+    location.reload();
+
+}
+
+
+/* =========================================
+   CONTACT PIN - UNLOCK
+========================================= */
+
+function unlockContact(){
+
+    let savedContactPin =
+    localStorage.getItem("contactPin");
+
+
+    /* पहली बार Contact PIN */
+
+    if(!savedContactPin){
+
+        let newPin =
+        prompt(
+            "पहली बार Contact PIN बनाएं (4 से 6 अंक):"
+        );
+
+        if(newPin === null){
+            return;
+        }
+
+
+        if(!/^[0-9]{4,6}$/.test(newPin)){
+
+            alert(
+                "❌ Contact PIN केवल 4 से 6 अंकों का होना चाहिए।"
+            );
+
+            return;
+        }
+
+
+        localStorage.setItem(
+            "contactPin",
+            newPin
+        );
+
+        alert(
+            "✅ Contact PIN बन गया है। अब Contact Unlock करें।"
+        );
+
+        return;
+    }
+
+
+    /* Existing Contact PIN */
+
+    let pin =
+    prompt("Contact PIN डालें:");
+
+    if(pin === savedContactPin){
+
+        document.getElementById(
+            "contactLocked"
+        ).classList.add("hidden");
+
+        document.getElementById(
+            "contactArea"
+        ).classList.remove("hidden");
+
+        loadContact();
+
+    }
+
+    else{
+
+        alert(
+            "❌ Contact PIN गलत है।"
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   CONTACT LOCK
+========================================= */
+
+function lockContact(){
+
+    document.getElementById(
+        "contactArea"
+    ).classList.add("hidden");
+
+    document.getElementById(
+        "contactLocked"
+    ).classList.remove("hidden");
+
+}
+
+
+/* =========================================
+   CHANGE CONTACT PIN
+========================================= */
+
+function changeContactPin(){
+
+    const savedPin =
+    localStorage.getItem("contactPin");
+
+    if(!savedPin){
+
+        alert(
+            "पहले Contact PIN बनाएं।"
+        );
+
+        return;
+    }
+
+
+    const oldPin =
+    prompt("पुराना Contact PIN डालें:");
+
+    if(oldPin !== savedPin){
+
+        alert(
+            "❌ Contact PIN गलत है।"
+        );
+
+        return;
+    }
+
+
+    const newPin =
+    prompt(
+        "नया Contact PIN डालें (4 से 6 अंक):"
+    );
+
+    if(newPin === null){
+        return;
+    }
+
+
+    if(!/^[0-9]{4,6}$/.test(newPin)){
+
+        alert(
+            "❌ Contact PIN केवल 4 से 6 अंकों का होना चाहिए।"
+        );
+
+        return;
+    }
+
+
+    localStorage.setItem(
+        "contactPin",
+        newPin
+    );
+
+    alert(
+        "✅ Contact PIN सफलतापूर्वक बदल गया।"
+    );
+
+}
+
+
+/* =========================================
+   SAVE CONTACT
+========================================= */
+
+function saveContact(){
+
+    const name =
+    document.getElementById(
+        "contactName"
+    ).value.trim();
+
+
+    const phone =
+    document.getElementById(
+        "contactPhone"
+    ).value.trim();
+
+
+    if(!name || !phone){
+
+        alert(
+            "❌ कृपया नाम और मोबाइल नंबर भरें।"
+        );
+
+        return;
+    }
+
+
+    localStorage.setItem(
+        "emergencyName",
+        name
+    );
+
+    localStorage.setItem(
+        "emergencyPhone",
+        phone
+    );
+
+
+    document.getElementById(
+        "saveMessage"
+    ).innerHTML =
+    '<p class="success">✅ Emergency Contact Save हो गया।</p>';
+
+}
+
+
+/* =========================================
+   LOAD CONTACT
+========================================= */
+
+function loadContact(){
+
+    const name =
+    localStorage.getItem(
+        "emergencyName"
+    );
+
+
+    const phone =
+    localStorage.getItem(
+        "emergencyPhone"
+    );
+
+
+    if(name){
+
+        document.getElementById(
+            "contactName"
+        ).value = name;
+
+    }
+
+
+    if(phone){
+
+        document.getElementById(
+            "contactPhone"
+        ).value = phone;
+
+    }
+
+}
+
+
+/* =========================================
+   LOCATION
+========================================= */
+
+function getLocation(){
+
+    if(!navigator.geolocation){
+
+        alert(
+            "❌ आपके browser में Location सुविधा उपलब्ध नहीं है।"
+        );
+
+        return;
+    }
+
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position){
+
+            currentLatitude =
+            position.coords.latitude;
+
+            currentLongitude =
+            position.coords.longitude;
+
+
+            const mapsLink =
+            "https://www.google.com/maps?q=" +
+            currentLatitude +
+            "," +
+            currentLongitude;
+
+
+            document.getElementById(
+                "locationResult"
+            ).classList.remove("hidden");
+
+
+            document.getElementById(
+                "locationResult"
+            ).innerHTML =
+
+            "🚨 <b>Location तैयार है।</b><br><br>" +
+
+            "Latitude: " +
+            currentLatitude +
+            "<br>" +
+
+            "Longitude: " +
+            currentLongitude +
+
+            "<br><br>" +
+
+            '<a href="' +
+            mapsLink +
+            '" target="_blank">' +
+            "📍 Google Maps में Location देखें" +
+            "</a>";
+
+
+            document.getElementById(
+                "locationBox"
+            ).innerHTML =
+            '<div class="result">✅ Current Location प्राप्त हो गई।</div>';
+
+
+            document.getElementById(
+                "emergencyActions"
+            ).classList.remove("hidden");
+
+        },
+
+
+        function(){
+
+            alert(
+                "❌ Location नहीं मिली। GPS चालू करें और Browser में Location Allow करें।"
+            );
+
+        },
+
+
+        {
+            enableHighAccuracy:true,
+            timeout:10000,
+            maximumAge:0
+        }
+
+    );
+
+}
+
+
+/* =========================================
+   CALL CONTACT
+========================================= */
+
+function callContact(){
+
+    const phone =
+    localStorage.getItem(
+        "emergencyPhone"
+    );
+
+
+    if(!phone){
+
+        alert(
+            "❌ पहले Emergency Contact Save करें।"
+        );
+
+        return;
+    }
+
+
+    window.location.href =
+    "tel:" + phone;
+
+}
+
+
+/* =========================================
+   SMS
+========================================= */
+
+function sendSMS(){
+
+    const phone =
+    localStorage.getItem(
+        "emergencyPhone"
+    );
+
+
+    if(!phone){
+
+        alert(
+            "❌ पहले Emergency Contact Save करें।"
+        );
+
+        return;
+    }
+
+
+    let message =
+    "🚨 EMERGENCY ALERT 🚨\n\n" +
+    "मुझे मदद की जरूरत है। कृपया मुझसे संपर्क करें।";
+
+
+    if(
+        currentLatitude !== null &&
+        currentLongitude !== null
+    ){
+
+        const mapsLink =
+        "https://www.google.com/maps?q=" +
+        currentLatitude +
+        "," +
+        currentLongitude;
+
+
+        message +=
+        "\n\n📍 मेरी Location:\n" +
+        mapsLink;
+
+    }
+
+
+    const smsLink =
+    "sms:" +
+    phone +
+    "?body=" +
+    encodeURIComponent(message);
+
+
+    window.location.href =
+    smsLink;
+
+}
+
+
+/* =========================================
+   PAGE START
+========================================= */
+
+window.addEventListener(
+    "load",
+    function(){
+
+        const savedPin =
+        localStorage.getItem(
+            "surakshaPin"
+        );
+
+
+        if(!savedPin){
+
+            document.getElementById(
+                "pinMessage"
+            ).innerHTML =
+            '<p>पहली बार हैं तो <b>नया PIN बनाएं</b> दबाएँ।</p>';
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   SERVICE WORKER
+========================================= */
+
+if("serviceWorker" in navigator){
+
+    window.addEventListener(
+        "load",
+        function(){
+
+            navigator.serviceWorker
+            .register("./service-worker.js")
+            .catch(function(error){
+
+                console.log(
+                    "Service Worker Error:",
+                    error
+                );
+
+            });
+
+        }
+    );
+
+}
+
+</script>
+
+</body>
+  </html>
